@@ -19,11 +19,12 @@ int main() {
         v = t;
         t += dt;
     }
-    auto u_a = sampling(sin, 0, T, F, dt); // имитация аналогового сигнала
-    auto u_1_5 = sampling(sin, 0, T, F, dt1); // дискретизация с частотой 1.5F
-    auto u_2 = sampling(sin, 0, T, F, dt2); // дискретизация с частотой 2F
-    auto u_3 = sampling(sin, 0, T, F, dt3); // дискретизация с частотой 3F
-    auto u_1000 = sampling(sin, 0, T, F, dt4); // дискретизация с частотой 1000F
+    double (*fncptr)(double) = cos;
+    auto u_a = sampling(fncptr, 0, T, F, dt); // имитация аналогового сигнала
+    auto u_1_5 = sampling(fncptr, 0, T, F, dt1); // дискретизация с частотой 1.5F
+    auto u_2 = sampling(fncptr, 0, T, F, dt2); // дискретизация с частотой 2F
+    auto u_3 = sampling(fncptr, 0, T, F, dt3); // дискретизация с частотой 3F
+    auto u_1000 = sampling(fncptr, 0, T, F, dt4); // дискретизация с частотой 1000F
 
     auto u_r1 = recovery(u_1_5, dt1, 0, T, dt);
     auto u_r2 = recovery(u_2, dt2, 0, T, dt);

@@ -2,6 +2,9 @@
 // Created by justnik on 12.09.2021.
 //
 
+#include <iostream>
+#include <fstream>
+#include <string>
 #include "dsp.hpp"
 
 using namespace std;
@@ -39,4 +42,16 @@ std::vector<double> recovery(vector<double> &signal, double dt1, double t1, doub
         t += dt;
     }
     return res;
+}
+
+void write(const vector<double> &x, const vector<double> &val, const string &filename) {
+    ofstream out(filename);
+    if (!out.is_open()) {
+        throw logic_error("Failed to open file " + filename);
+    } else {
+        for (auto i = 0; i < x.size(); ++i) {
+            out << x[i] << ' ' << val[i] << endl;
+        }
+    }
+    out.close();
 }

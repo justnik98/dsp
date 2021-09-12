@@ -7,9 +7,10 @@
 
 #include <cmath>
 #include <functional>
+#include <string>
 #include <vector>
 
-void write(std::vector<double> &x, std::vector<double> &val);
+void write(std::vector<double> &x, std::vector<double> &val, const std::string &filename);
 
 std::vector<double> sampling(double (*func)(double), double t1, double t2, double freq, double dt);
 

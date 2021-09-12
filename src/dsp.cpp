@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include "dsp.hpp"
 
 using namespace std;
@@ -44,7 +43,7 @@ std::vector<double> recovery(vector<double> &signal, double dt1, double t1, doub
     return res;
 }
 
-void write(const vector<double> &x, const vector<double> &val, const string &filename) {
+void write(vector<double> &x, vector<double> &val, const std::string &filename) {
     ofstream out(filename);
     if (!out.is_open()) {
         throw logic_error("Failed to open file " + filename);
@@ -55,3 +54,5 @@ void write(const vector<double> &x, const vector<double> &val, const string &fil
     }
     out.close();
 }
+
+

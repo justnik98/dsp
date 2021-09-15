@@ -1,0 +1,9 @@
+set grid
+
+set style line 1 lt 1 linecolor "red" lw 2.5
+set style line 2 lt 2 linecolor "blue" lw 2
+set style line 3 lt 3 linecolor "green" lw 2
+set style line 4 lt 1 linecolor "yellow" lw 2
+set style line 5 lt 1 linecolor "black" lw 2
+
+plot "analog.dat" ls 1 with lines title "Analog", "1000F.dat" ls 2 with lines title "1000F", "3F.dat" ls 3 with lines title "3F", "2F.dat" ls 4 with lines title "2F", "1_5F.dat" ls 5 with lines title "1.5F" 
